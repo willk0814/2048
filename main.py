@@ -20,12 +20,13 @@ def game_loop():
             break
 
         # check if the user lost - no available moves and no available spaces
-        if board.check_available_moves() == [] and board.find_open_spaces() == []:
-            print('YOU LOST')
-            break
+        # if board.check_available_moves() == [] and board.find_open_spaces() == []:
+        #     print('YOU LOST')
+        #     break
 
         # prompt the user for an input {w, a, s, d}
-        user_move = input('\nMake your move using the w, a, s, and d keys \n')
+        user_move = input('Make your move using the w, a, s, and d keys \n').strip()
+        print(user_move)
         board.handleMove(user_move)
 
 

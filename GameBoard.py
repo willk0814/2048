@@ -20,7 +20,7 @@ class GameBoard:
         # randomly decide where to add the piece
         row, col = available_spaces[random.randint(0, len(available_spaces) - 1)]
         # randomly decide which piece to add
-        self.board[row][col] = [2] if random.randint(0, 1) == 0 else [4]
+        self.board[row][col] = 2 if random.randint(0, 1) == 0 else 4
 
     # method that returns a list of available coordinate pairs
     def find_open_spaces(self):
@@ -43,7 +43,6 @@ class GameBoard:
     def check_available_moves(self):
         available_moves = []
         current_board = self.board
-
         # check each move to see if it yields the same board
         if current_board == moveLogic.moveUp(current_board):
             available_moves.append('w')
@@ -58,17 +57,12 @@ class GameBoard:
 
     # call the correct move function based on the users input
     def handleMove(self, player_move):
-        current_board = self.board
 
         if player_move == 'W' or player_move == 'w':
-            current_board = moveLogic.moveUp(current_board)
+            self.board = moveLogic.moveUp(self.board)
         elif player_move == 'A' or player_move == 'a':
-            current_board = moveLogic.moveRight(current_board)
+            self.board = moveLogic.moveRight(self.board)
         elif player_move == 'S' or player_move == 's':
-            current_board = moveLogic.moveDown(current_board)
+            self.board = moveLogic.moveDown(self.board)
         elif player_move == 'D' or player_move == 'd':
-            current_board = moveLogic.moveRight(current_board)
-
-        self.board = current_board
-
-        return current_board
+            self.board = moveLogic.moveRight(self.board)
