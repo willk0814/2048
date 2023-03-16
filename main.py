@@ -1,5 +1,6 @@
 from GameBoard import GameBoard
 
+
 def game_loop():
     # create a new GameBoard
     board = GameBoard()
