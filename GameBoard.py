@@ -13,6 +13,32 @@ class GameBoard:
         for i in range(len(self.board)):
             print(self.board[i])
 
+    # print a justified version of the board
+    def print_justified_board(self):
+        justified_board = []
+        # establish the largest valued piece on the board
+        _max = 0
+        for i in range(len(self.board)):
+            row = []
+            for j in range(len(self.board[i])):
+                row.append(self.board[i][j])
+                _max = len(str(self.board[i][j])) if len(str(self.board[i][j])) > _max else _max
+            justified_board.append(row)
+
+        print('max len: ', _max)
+        # add the appropriate padding to each cell
+        for i in range(len(justified_board)):
+            for j in range(len(justified_board[i])):
+                # reassign '-' to '_'
+                if justified_board[i][j] == '-':
+                    justified_board[i][j] = '_' * _max
+                else:
+                    justified_board[i][j] = '_' * (_max - len(str(justified_board[i][j]))) \
+                                            + str(justified_board[i][j])
+
+        for i in range(len(justified_board)):
+            print(justified_board[i])
+
     # method to add a piece to the board
     def add_piece(self):
         # create a list of available indices

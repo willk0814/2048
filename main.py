@@ -12,7 +12,7 @@ def game_loop():
         # add piece to the current GameBoard and print it
         board.add_piece()
         print('Current GameBoard:')
-        board.print_board()
+        board.print_justified_board()
 
         # check if the user won
         if board.check_won():
@@ -31,3 +31,4 @@ def game_loop():
 
 if __name__ == '__main__':
     game_loop()
+
