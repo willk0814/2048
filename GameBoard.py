@@ -61,7 +61,7 @@ class GameBoard:
         if player_move == 'W' or player_move == 'w':
             self.board = moveLogic.moveUp(self.board)
         elif player_move == 'A' or player_move == 'a':
-            self.board = moveLogic.moveRight(self.board)
+            self.board = moveLogic.moveLeft(self.board)
         elif player_move == 'S' or player_move == 's':
             self.board = moveLogic.moveDown(self.board)
         elif player_move == 'D' or player_move == 'd':

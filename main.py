@@ -1,6 +1,5 @@
 from GameBoard import GameBoard
 
-
 def game_loop():
     # create a new GameBoard
     board = GameBoard()
@@ -25,8 +24,7 @@ def game_loop():
         #     break
 
         # prompt the user for an input {w, a, s, d}
-        user_move = input('Make your move using the w, a, s, and d keys \n').strip()
-        print(user_move)
+        user_move = input('Make your move using the w, a, s, and d keys \n').strip().replace(" ", '')
         board.handleMove(user_move)
 
 
