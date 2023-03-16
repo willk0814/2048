@@ -25,7 +25,6 @@ class GameBoard:
                 _max = len(str(self.board[i][j])) if len(str(self.board[i][j])) > _max else _max
             justified_board.append(row)
 
-        print('max len: ', _max)
         # add the appropriate padding to each cell
         for i in range(len(justified_board)):
             for j in range(len(justified_board[i])):
