@@ -1,4 +1,4 @@
-# 2048
+# Terminal-2048
 This is a simple Python project that I am working on in order to practice some of my matrix manipulation skills.  I was asked in an interview how to preform the swipe left function and I fumbled a bit during my answer, so I thought that building the rest of the game would be a fun challenge.
 
 # Run Instructions
