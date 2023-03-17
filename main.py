@@ -16,17 +16,26 @@ def game_loop():
 
         # check if the user won
         if board.check_won():
+            print('\n')
             print('CONGRATULATIONS you got the 2048 tile')
             break
 
         # check if the user lost - no available moves and no available spaces
-        # if board.check_available_moves() == [] and board.find_open_spaces() == []:
-        #     print('YOU LOST')
-        #     break
+        if board.check_available_moves() == [] and board.find_open_spaces() == []:
+            print('\n')
+            print('YOU LOST')
+            break
 
         # prompt the user for an input {w, a, s, d}
-        user_move = input('Make your move using the w, a, s, and d keys \n').strip().replace(" ", '')
-        board.handleMove(user_move)
+        valid_move_made, valid_moves = False, board.check_available_moves()
+        while not valid_move_made:
+            user_move = input('Make your move using the w, a, s, and d keys \n').strip().replace(" ", '')
+            if user_move in valid_moves:
+                board.handleMove(user_move)
+                valid_move_made = True
+            else:
+                print('Looks like that move is unavailable \n')
+                board.print_justified_board()
 
 
 if __name__ == '__main__':

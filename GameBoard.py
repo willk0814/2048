@@ -1,3 +1,4 @@
+import copy
 import random
 import moveLogic
 
@@ -66,16 +67,23 @@ class GameBoard:
 
     # method to check if there are any available moves
     def check_available_moves(self):
-        available_moves = []
-        current_board = self.board
+        available_moves, current_board = [], []
+        # create temporary board
+        for i in range(len(self.board)):
+            row = []
+            for j in range(len(self.board[i])):
+                row.append(self.board[i][j])
+            current_board.append(row)
+
+        tmp_board = copy.deepcopy(current_board)
         # check each move to see if it yields the same board
-        if current_board == moveLogic.moveUp(current_board):
+        if current_board != moveLogic.moveUp(tmp_board):
             available_moves.append('w')
-        if current_board == moveLogic.moveDown(current_board):
+        if current_board != moveLogic.moveDown(tmp_board):
             available_moves.append('s')
-        if current_board == moveLogic.moveLeft(current_board):
+        if current_board != moveLogic.moveLeft(tmp_board):
             available_moves.append('a')
-        if current_board == moveLogic.moveRight(current_board):
+        if current_board != moveLogic.moveRight(tmp_board):
             available_moves.append('d')
 
         return available_moves
