@@ -61,7 +61,7 @@ class GameBoard:
     def check_won(self):
         for i in range(len(self.board)):
             for j in range(len(self.board[i])):
-                if self.board[i][j] == [2048]:
+                if self.board[i][j] == 2048:
                     return True
         return False
 
